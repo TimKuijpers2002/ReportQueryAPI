@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>fe4e20a1-ca68-47b7-8291-d25afc37299d</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\Medix-Hub</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
