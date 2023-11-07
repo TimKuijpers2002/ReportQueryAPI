@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReportQueryAPI.DAL.Context
+namespace ReportQueryAPI.Data
 {
     public class ReportQueryDbContext : DbContext
     {
