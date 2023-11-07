@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["ReportQueryAPI/ReportQueryAPI.csproj", "ReportQueryAPI/"]
-RUN dotnet restore "ReportQueryAPI/ReportQueryAPI.csproj"
+COPY ReportQueryAPI.csproj ./
+RUN dotnet restore "ReportQueryAPI.csproj"
 COPY . .
-WORKDIR "/src/ReportQueryAPI"
+WORKDIR "/src"
 RUN dotnet build "ReportQueryAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
