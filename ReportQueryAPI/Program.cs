@@ -1,11 +1,8 @@
 using MediatR;
-using ReportQueryAPI.App;
-using ReportQueryAPI.App.Interfaces;
-using ReportQueryAPI.DAL.Repositories;
-using ReportQueryAPI.DAL.Context;
 using ReportQueryAPI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using ReportQueryAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,10 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc().AddJsonTranscoding();
-
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(QueryProjectRefference).Assembly));
-
-builder.Services.AddScoped<IReportQueryRepository, ReportQueryRepository>();
 
 ConfigurationManager configuration = builder.Configuration;
 builder.Services.AddDbContext<ReportQueryDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),

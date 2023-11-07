@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReportQueryAPI.Domain.DTOs;
+using ReportQueryAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
