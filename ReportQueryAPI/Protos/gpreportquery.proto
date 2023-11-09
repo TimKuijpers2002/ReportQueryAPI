@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option csharp_namespace = "ReportQueryAPI";
+
+import "google/protobuf/Timestamp.proto";
+import "google/api/annotations.proto";
+
+package gpreportquery;
+
+// The greeting service definition.
+service GPReportQueryProto {
+
+// Read Single
+rpc ReadGPReport(ReadGPReportRequest) returns (ReadGPReportResponse)
+{
+	option (google.api.http) = {
+		get: "/v1/gpreport/{id}"
+	};
+};
+
+// Read List
+rpc GetAllGPReport(GetAllGPReportRequest) returns (GetAllGPReportResponse) 
+{
+	option (google.api.http) = {
+		get: "/v1/gpreport"
+	};
+};
+
+}
+
+message ReadGPReportRequest {
+	string id = 1;
+}
+
+message ReadGPReportResponse {
+	string id = 1;
+	string patient_id = 2;
+	string employee_id = 3;
+	google.protobuf.Timestamp initial_creation = 4;
+	string notes = 5;
+}
+
+message GetAllGPReportRequest {}
+
+message GetAllGPReportResponse {
+	repeated ReadGPReportResponse gp_report = 1;
+}

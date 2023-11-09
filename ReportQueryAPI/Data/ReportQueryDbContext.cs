@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ReportQueryAPI.Domain.DTOs;
+using ReportQueryAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ReportQueryAPI.DAL.Context
+namespace ReportQueryAPI.Data
 {
     public class ReportQueryDbContext : DbContext
     {
@@ -15,6 +15,5 @@ namespace ReportQueryAPI.DAL.Context
 
         }
         public DbSet<GPReportDTO> GPReports => Set<GPReportDTO>();
-        public DbSet<ReportDTO> Reports => Set<ReportDTO>();
     }
 }
