@@ -12,7 +12,7 @@ using ReportQueryAPI.Data;
 namespace ReportQueryAPI.Migrations
 {
     [DbContext(typeof(ReportQueryDbContext))]
-    [Migration("20231108081703_init")]
+    [Migration("20231110001914_init")]
     partial class init
     {
         /// <inheritdoc />
