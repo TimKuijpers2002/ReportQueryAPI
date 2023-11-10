@@ -36,6 +36,20 @@ jobs:
       - name: Login to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Set Environment Variables
+        run: |
+          echo "SQL_DATABASE=${{ secrets.SQL_DATABASE }}" >> $GITHUB_ENV
+          echo "SQL_SERVER=${{ secrets.SQL_SERVER }}" >> $GITHUB_ENV
+          echo "SQL_USER=${{ secrets.SQL_USER }}" >> $GITHUB_ENV
+          echo "SQL_PASSWORD=${{ secrets.SQL_PASSWORD }}" >> $GITHUB_ENV
+  
+      - name: Replace Placeholders in appsettings.json
+        run: |
+          sed -i "s|{SQL_DATABASE}|${SQL_DATABASE}|g" ./ReportQueryAPI/appsettings.json
+          sed -i "s|{SQL_SERVER}|${SQL_SERVER}|g" ./ReportQueryAPI/appsettings.json
+          sed -i "s|{SQL_USER}|${SQL_USER}|g" ./ReportQueryAPI/appsettings.json
+          sed -i "s|{SQL_PASSWORD}|${SQL_PASSWORD}|g" ./ReportQueryAPI/appsettings.json
+
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
