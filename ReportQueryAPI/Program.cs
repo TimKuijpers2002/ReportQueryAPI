@@ -1,4 +1,3 @@
-using MediatR;
 using ReportQueryAPI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
