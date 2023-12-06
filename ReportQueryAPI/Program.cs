@@ -1,4 +1,3 @@
-using MediatR;
 using ReportQueryAPI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +13,6 @@ builder.Services.AddGrpc().AddJsonTranscoding();
 var app = builder.Build();
 
 app.MapGrpcService<GPReportQueryService>();
-app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
+app.MapGet("/", () => "health check");
 
 app.Run();

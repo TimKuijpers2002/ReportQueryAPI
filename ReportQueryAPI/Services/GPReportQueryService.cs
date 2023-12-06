@@ -13,6 +13,7 @@ namespace ReportQueryAPI.Services
         {
             _dbContext = dbContext;
         }
+        //context
 
         public override async Task<ReadGPReportResponse> ReadGPReport(ReadGPReportRequest request, ServerCallContext context)
         {
@@ -29,7 +30,8 @@ namespace ReportQueryAPI.Services
                     Id = gpreport.Id.ToString(),
                     PatientId = gpreport.PatientId.ToString(),
                     EmployeeId = gpreport.EmployeeId.ToString(),
-                    InitialCreation = gpreport.InitialCreation.ToUniversalTime().ToTimestamp()
+                    InitialCreation = gpreport.InitialCreation.ToUniversalTime().ToTimestamp(),
+                    Notes = gpreport.Notes,
                 });
             }
 
@@ -48,7 +50,8 @@ namespace ReportQueryAPI.Services
                     Id = gpreport.Id.ToString(),
                     PatientId = gpreport.PatientId.ToString(),
                     EmployeeId = gpreport.EmployeeId.ToString(),
-                    InitialCreation = gpreport.InitialCreation.ToUniversalTime().ToTimestamp()
+                    InitialCreation = gpreport.InitialCreation.ToUniversalTime().ToTimestamp(),
+                    Notes = gpreport.Notes,
                 }); ;
             }
 
