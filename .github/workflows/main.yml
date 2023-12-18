@@ -60,10 +60,10 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          echo "SQL_DATABASE=${{ secrets.SQL_DATABASE }}" >> $GITHUB_ENV
-          echo "SQL_SERVER=${{ secrets.SQL_SERVER }}" >> $GITHUB_ENV
-          echo "SQL_USER=${{ secrets.SQL_USER }}" >> $GITHUB_ENV
-          echo "SQL_PASSWORD=${{ secrets.SQL_PASSWORD }}" >> $GITHUB_ENV
+          echo "SQL_DATABASE=${{ secrets.SQL_PROD_DATABASE }}" >> $GITHUB_ENV
+          echo "SQL_SERVER=${{ secrets.SQL_PROD_SERVER }}" >> $GITHUB_ENV
+          echo "SQL_USER=${{ secrets.SQL_PROD_USER }}" >> $GITHUB_ENV
+          echo "SQL_PASSWORD=${{ secrets.SQL_PROD_PASSWORD }}" >> $GITHUB_ENV
 
       - name: Replace Placeholders in appsettings.json
         run: |
