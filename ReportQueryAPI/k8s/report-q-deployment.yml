@@ -1,0 +1,27 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: report-query-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: report-query-api
+  template:
+    metadata:
+      labels:
+        app: report-query-api
+    spec:
+      containers:
+        - name: report-query-api
+          image: timsku2002/reportqueryapi:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 200Mi
